@@ -1,0 +1,74 @@
+package com.example.aries.domain;
+
+import javax.persistence.*;
+import javax.validation.constraints.NotBlank;
+
+@Entity
+@Table(name = "employers")
+public class Employer {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+    @NotBlank(message = "Please fill the name")
+    private String name;
+    @NotBlank(message = "Please fill the surname")
+    private String surname;
+    private Profession profession;
+    private Long orderNumber = null;
+
+    public Employer() {
+    }
+
+    public Employer(String name, String surname, Profession profession) {
+        this.name = name;
+        this.surname = surname;
+        this.profession = profession;
+    }
+
+/*    public Employer(String name, String surname, Profession profession, Long brigadeId) {
+        this.name = name;
+        this.surname = surname;
+        this.profession = profession;
+        this.brigadeId = brigadeId;
+    }*/
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getSurname() {
+        return surname;
+    }
+
+    public void setSurname(String surname) {
+        this.surname = surname;
+    }
+
+    public Profession getProfession() {
+        return profession;
+    }
+
+    public void setProfession(Profession profession) {
+        this.profession = profession;
+    }
+
+    public Long getOrderNumber() {
+        return orderNumber;
+    }
+
+    public void setOrderNumber(Long orderNumber) {
+        this.orderNumber = orderNumber;
+    }
+}
